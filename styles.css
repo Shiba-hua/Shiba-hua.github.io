@@ -22,7 +22,7 @@
 .a1 .intro{font-size:16px}
 .a1 .hero-description{margin:7px 0;font-size:15px}
 .a1 .hero .social{margin-top:12px;gap:22px}
-.a1 .portrait{width:96px;height:115px}
+.a1 .portrait{width:96px;height:auto}
 .a1 .section-nav{padding:12px 0;gap:28px}
 .a1 section{grid-template-columns:130px 1fr;gap:22px;padding:24px 0}
 .a1 .section-label{margin-bottom:0}
@@ -60,7 +60,7 @@
 @media(max-width:850px){.a1 section{grid-template-columns:1fr;gap:12px}.a1 .section-label{display:block}}
 @media(max-width:600px){
  .a1 .hero{padding:22px 0 18px}.a1 .hero h1{font-size:30px;padding-right:95px;margin-bottom:20px}
- .a1 .hero h1>span{font-size:18px;margin-top:4px}.a1 .portrait{top:22px;width:76px;height:91px}
+ .a1 .hero h1>span{font-size:18px;margin-top:4px}.a1 .portrait{top:22px;width:76px;height:auto}
  .a1 .hero .social{gap:18px}.a1 .hero-description{font-size:14px}.a1 .intro{font-size:15px}
  .a1 .section-nav{gap:8px 13px;padding:12px 0}.a1 section{padding:21px 0}
  .a1 .edu-row{grid-template-columns:1fr;gap:2px;padding:8px 0}.a1 .edu-row>div{display:block}
