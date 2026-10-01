@@ -317,9 +317,7 @@
     .hero-profile .eyebrow { margin-bottom: 14px; }
     .hero-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 26px; font-size: 14px; }
     .hero-links a, .work-link { border-bottom: 1px solid var(--border); padding-bottom: 2px; }
-    .portrait-mat { margin: 0; padding: 9px; background: var(--surface); border: 1px solid var(--border); }
-    .portrait-mat .content-img { width: 100%; max-height: none; height: auto; border-radius: 0; }
-    .portrait-mat figcaption { margin-top: 8px; color: var(--muted); font: 11px/1.4 var(--font-mono); text-align: right; }
+    .portrait-photo { width: 190px; max-height: none; height: auto; border-radius: 0; }
     .section-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 26px; }
     .section-head .meta { margin-left: auto; text-align: right; }
     .section-index { color: var(--accent); font: 12px/1.5 var(--font-mono); }
@@ -360,7 +358,7 @@
       .topnav nav { width: 100%; gap: 8px 16px; flex-wrap: wrap; }
       .topnav nav a { font-size: 12px; }
       .hero-profile { grid-template-columns: 1fr; gap: 26px; padding-block: 42px 48px; }
-      .portrait-mat { width: 144px; }
+      .portrait-photo { width: 144px; }
       .section-head { flex-wrap: wrap; gap: 8px 14px; }
       .section-head .meta { flex-basis: 100%; margin-left: 0; text-align: left; }
       .log-row, .edu-row, .paper-row, .other-row { grid-template-columns: 1fr; gap: 8px; padding: 19px 0; }
@@ -399,10 +397,7 @@
             <a href="#opensource">看开源项目 ↓</a>
           </div>
         </div>
-        <figure class="portrait-mat">
-          <img class="content-img" src="portrait.png" width="795" height="1095" alt="罗文江的证件照" />
-          <figcaption>LUO WENJIANG · 2026</figcaption>
-        </figure>
+        <img class="content-img portrait-photo" src="portrait.png" width="1086" height="1448" alt="罗文江的照片" />
       </div>
     </section>
 
