@@ -1,17 +1,11 @@
-/* 智能简史 · a ~10-second, wide-and-short history of intelligence.
- *
- *   0 – 3 s   a walker straightens up from ape to human
- *   3 – 4.6   speech, then oracle-bone 人 言 文 written on the strip
- *   4.6 – 6.2 the strip becomes a tape; a Turing head replaces the human
- *   6.2 – 7.8 a small MLP grows above the head, activations flow
- *   7.8 – 8.5 head and MLP fold into one machine
- *             (the Turing head encodes Turing's "Can machines think?" into the tape, one ASCII byte per cell, shown in hex)
- *   8.5 →     the machine answers in real o200k_base tokens: "Attention Is All You Need" …,
- *             then a laptop arrives and it types them, forever
- *
- * Pure function of time: render(t) draws exactly one frame, so the same code
- * plays live on the page and can be stepped frame-by-frame to export an MP4.
- * Colours come from CSS custom properties, so light/dark themes just work.
+window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0": 17.4, "T0": 18.64, "RES0": 21.8, "FOLD0": 27.0, "TOK0": 28.8, "segments": [{"kind": "answer", "start": 28.8}, {"kind": "prompt", "start": 41.5}, {"kind": "step", "level": 1, "start": 44.0}, {"kind": "step", "level": 2, "start": 47.3}, {"kind": "step", "level": 3, "start": 50.6}, {"kind": "step", "level": 4, "start": 53.9}, {"kind": "step", "level": 5, "start": 57.2}, {"kind": "think", "start": 60.6}], "tapeStop": 72.6, "LAP_IN": 73.2, "END": 84, "pagePeriod": 6, "logPages": 300, "STILL": 95, "samples": [["cat", 0.34, 18.64, 1.053], ["dog", 0.71, 19.693, 1.053], ["cat", 0.94, 20.747, 1.053], ["dog", 0.98, 22.3, 1.367], ["cat", 0.99, 23.667, 1.367], ["dog", 0.99, 25.033, 1.367]], "resColGap": 0.4, "resArcAt": 3.0, "driftV": 16, "stepRise": 7, "tapRate": 6.5, "tokens": {"answer": [["Attention", 80207], [" Is", 2763], [" All", 2545], [" You", 1608], [" Need", 19792], [".", 13], [" The", 623], [" dominant", 42647], [" sequence", 16281], [" trans", 1643], ["duction", 23838], [" models", 7015], [" are", 553], [" based", 4122], [" on", 402], [" complex", 8012], [" recurrent", 94157], [" or", 503], [" convolution", 137447], ["al", 280], [" neural", 58480], [" networks", 20240], [" that", 484], [" include", 3931], [" an", 448], [" encoder", 49416], [" and", 326], [" a", 261], [" decoder", 53790], [".", 13]], "prompt": [["Let's", 58369], [" think", 2411], [" step", 5983], [" by", 656], [" step", 5983], [".", 13]], "steps": [[["There", 5632], [" are", 553], [" ", 220], ["16", 1125], [" balls", 32657], [" in", 306], [" total", 3609], [".", 13]], [[" Half", 40150], [" of", 328], [" the", 290], [" balls", 32657], [" are", 553], [" golf", 18340], [" balls", 32657], [".", 13]], [[" That", 4569], [" means", 4748], [" that", 484], [" there", 1354], [" are", 553], [" ", 220], ["8", 23], [" golf", 18340], [" balls", 32657], [".", 13]], [[" Half", 40150], [" of", 328], [" the", 290], [" golf", 18340], [" balls", 32657], [" are", 553], [" blue", 9861], [".", 13]], [[" That", 4569], [" means", 4748], [" that", 484], [" there", 1354], [" are", 553], [" ", 220], ["4", 19], [" blue", 9861], [" golf", 18340], [" balls", 32657], [".", 13]]], "thought": [["To", 1385], [" solve", 17722], [" the", 290], [" equation", 42006], [" √", 143029], ["(", 7], ["a", 64], [" −", 70238], [" √", 143029], ["(", 7], ["a", 64], [" +", 659], [" x", 1215], ["))", 915], [" =", 314], [" x", 1215], [",", 11], [" let", 1632], ["’s", 802], [" start", 1604], [" by", 656], [" squ", 14685], ["aring", 4115], [" both", 2973], [" ⋯", [175591, 107]], [" (", 350], ["√", 103946], ["(", 7], ["a", 64], [" −", 70238], [" √", 143029], ["(", 7], ["a", 64], [" +", 659], [" x", 1215], [")))", 15975], ["²", 13848], [" =", 314], [" x", 1215], ["²", 13848], [" ⟹", [2969, 253, 117]], [" a", 261], [" −", 70238], [" √", 143029], ["(", 7], ["a", 64], [" +", 659], [" x", 1215], [")", 8], [" =", 314], [" x", 1215], ["²", 13848], [".", 13], [" Rear", 69048], ["range", 20967], [" to", 316], [" isolate", 79669], [" the", 290], [" inner", 12694], [" square", 13749], [" root", 6577], [" term", 2914], [":", 25], [" (", 350], ["a", 64], [" −", 70238], [" x", 1215], ["²", 13848], [")", 8], ["²", 13848], [" =", 314], [" a", 261], [" +", 659], [" x", 1215], [" ⟹", [2969, 253, 117]], [" a", 261], ["²", 13848], [" −", 70238], [" ", 220], ["2", 17], ["ax", 1362], ["²", 13848], [" +", 659], [" (", 350], ["x", 87], ["²", 13848], [")", 8], ["²", 13848], [" =", 314], [" a", 261], [" +", 659], [" x", 1215], [" ⟹", [2969, 253, 117]], [" x", 1215], ["⁴", [37127, 112]], [" −", 70238], [" ", 220], ["2", 17], ["ax", 1362], ["²", 13848], [" −", 70238], [" x", 1215], [" +", 659], [" (", 350], ["a", 64], ["²", 13848], [" −", 70238], [" a", 261], [")", 8], [" =", 314], [" ", 220], ["0", 15], [" …", 3762], [" Wait", 24305], [",", 11], [" wait", 5238], [".", 13], [" Wait", 24305], [".", 13], [" That", 4569], ["’s", 802], [" an", 448], [" aha", 29574], [" moment", 4205], [" I", 357], [" can", 665], [" flag", 9641], [" here", 2105], [".", 13], [" Let", 9024], ["’s", 802], [" ree", 92812], ["valuate", 28899], [" this", 495], [" step", 5983], ["-by", 23541], ["-step", 41570], [" to", 316], [" identify", 11410], [" if", 538], [" the", 290], [" correct", 6145], [" sum", 4215], [" can", 665], [" be", 413], [" ⋯", [175591, 107]]]}};
+/* 智能简史 · the homepage header animation (silent; ~70 s of story, then an endless loop of work).
+ * One engine for the page and the Bilibili film: every beat is scheduled from FILM_CONFIG.
+ *   evolution → speech → 人言文 → Turing tape ("Can machines think?") → an MLP tells cats from dogs
+ *   → ResNet (He et al., 2015) → fold into one machine → "Attention Is All You Need" (Vaswani et al., 2017)
+ *   → "Let's think step by step" + five steps (Kojima et al., 2022, Fig. 1) → <think>…</think> (DeepSeek-R1, 2025, Tables 1 & 3)
+ *   → a laptop; the machine works forever, logging a ✓ for every finished page.
+ * Source: homepage-preview-v3/film/film.js; the film uses film/cfg-<track>.js instead of the config below.
  */
 (function () {
   'use strict';
@@ -27,12 +21,22 @@
   //   22 – 24    the network folds into the head: one machine; the cat naps on its roof
   //   24 – 30    the machine answers in tokens: "Attention Is All You Need. …"
   //   30 →       a laptop arrives, the dog naps on the desk, the machine types, forever
-  var LAP_IN = 29.4, LAP_DONE = 30.6, ARMS_DONE = 31.2;
-  function story(t) { return t; }
-  // the MLP scene was choreographed on a compact clock; M() places it at 17.4–23.6 s
+  var C = window.FILM_CONFIG;
+  function interp(knots, x) {
+    if (x <= knots[0][0]) return knots[0][1];
+    for (var i = 1; i < knots.length; i++) { var a = knots[i - 1], b = knots[i]; if (x <= b[0]) return a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0]); }
+    var z = knots[knots.length - 1]; return z[1] + (x - z[0]);
+  }
+  // film time → story time: the opening beats are re-timed by C.warp; from the network on, story = film − D
+  var D = C.G0 - 17.4;
+  function B(x) { return x - D; }
+  function story(F) { return F < C.G0 ? interp(C.warp, F) : F - D; }
+  var T0b = B(C.T0), RES0b = B(C.RES0), FOLD0b = B(C.FOLD0), TOK0b = B(C.TOK0);
+  var LAP_IN = B(C.LAP_IN), LAP_DONE = LAP_IN + 1.2, ARMS_DONE = LAP_IN + 1.8;
+  var FOLD_K = (TOK0b - FOLD0b) / 0.65;       // how much slower than the homepage the fold runs
+  // the network scene on its compact clock: growth/training (x ≤ 7.8) and the fold (x ≥ 7.8)
+  function M(x) { return x < 7.8 ? interp([[6.2, 17.4], [6.65, T0b], [7.8, RES0b]], x) : FOLD0b + (x - 7.8) * FOLD_K; }
   var MK = 2.7556;
-  function M(x) { return 17.4 + (x - 6.2) * MK; }
-  var T_END = 32;                       // seconds until the endless typing loop is established
 
   // Question and answer, 67 years apart:
   //   the Turing machine writes Turing's (1950) "Can machines think?" onto the tape in 8-bit ASCII;
@@ -64,17 +68,24 @@
     var v = 40 * smooth(8.0, 8.5, t);                     // carry the human away
     v += (V_ENC - 40) * smooth(9.6, 10.2, t);             // the head encodes, ~2.6 characters a second
     v -= V_ENC * smooth(17.0, 17.6, t);                   // stop: the cat and dog hold still to be classified
-    v += V_TOK * smooth(22.9, 23.6, t);                   // token pace — the answer lands right after the question
+    var prev = 0;
+    for (var k = 0; k < SEG.length; k++) {                 // each printed segment sets its own pace
+      var r = k ? 0.35 : 0.7;
+      v += (SEG[k].v - prev) * smooth(SEG[k].b - r, SEG[k].b + (k ? 0.35 : 0), t); prev = SEG[k].v;
+    }
+    if (SEG.length) v += (C.driftV - prev) * smooth(STOPb, STOPb + 1.2, t);
     return v;
   }
-  var T_TAB = 26, DT = 1 / 200, N = Math.ceil(T_TAB / DT) + 1, WK = new Float64Array(N), TP = new Float64Array(N);
-  (function () {
+  var SEG = [], STOPb = 1e9;
+  var T_TAB = B(C.END) + 3, DT = 1 / 200, N = Math.ceil(T_TAB / DT) + 1, WK = new Float64Array(N), TP = new Float64Array(N);
+  function integrate() {
     for (var i = 1; i < N; i++) {
       var t = (i - 0.5) * DT;
       WK[i] = WK[i - 1] + walkSpeed(t) * DT;
       TP[i] = TP[i - 1] + tapeSpeed(t) * DT;
     }
-  })();
+  }
+  integrate();
   function table(arr, t, vEnd) {
     if (t <= 0) return 0;
     if (t >= T_TAB) return arr[N - 1] + vEnd * (t - T_TAB);
@@ -82,11 +93,11 @@
     return lerp(arr[i], arr[Math.min(i + 1, N - 1)], f - i);
   }
   function walked(t) { return table(WK, t, 0); }
-  function taped(t) { return table(TP, t, V_TOK); }
+  function taped(t) { return table(TP, t, C.driftV); }
   // inverse of taped(): when did the tape reach offset s?
   function tapeTime(s) {
     if (s <= 0) return 8.0;
-    if (s >= TP[N - 1]) return T_TAB + (s - TP[N - 1]) / V_TOK;
+    if (s >= TP[N - 1]) return T_TAB + (s - TP[N - 1]) / Math.max(C.driftV, 1);
     var lo = 0, hi = N - 1;
     while (hi - lo > 1) { var m = (lo + hi) >> 1; if (TP[m] < s) lo = m; else hi = m; }
     return lo * DT;
@@ -158,7 +169,7 @@
     host.classList.add('ih', 'ih-' + style);
     var svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('role', 'img');
-    svg.setAttribute('aria-label', opts.label || '智能简史动画：古猿直立成人，说出语言、写下甲骨文“人言文”；纸带变成图灵机纸带，读写头取代了人；读写头上长出一个小型神经网络；一只狗和一只猫先后来到人身边，后来成了神经网络分辨猫狗的训练样本；二者合成一台机器，猫跳上机器顶上睡觉；图灵机读完“人言文”，把图灵的提问 Can machines think? 逐字编码（ASCII 十六进制）写上纸带；最后机器用 token 作答，打印论文《Attention Is All You Need》的标题与摘要首句，随后伸出机械臂，在笔记本电脑上不停打字，狗跳上书桌趴下。');
+    svg.setAttribute('aria-label', opts.label || '智能简史动画：古猿直立成人，说出语言、写下甲骨文“人言文”；纸带变成图灵机纸带，读写头取代了人；读写头上长出一个小型神经网络；一只狗和一只猫先后来到人身边，后来成了神经网络分辨猫狗的训练样本；图灵机读完“人言文”，把图灵的提问 Can machines think? 逐字编码（ASCII 十六进制）写上纸带；神经网络一层层变深，出现跨层连接（ResNet）；网络与读写头合成一台机器，猫跳上机器顶上睡觉；机器用 token 打印论文《Attention Is All You Need》的标题与摘要首句，再打出 Let’s think step by step，随后的推理一步一级排成台阶，狗沿着台阶往上走；接着在 <think> 与 </think> 之间快速写下思考过程；最后伸出机械臂，在笔记本电脑上不停干活，每完成一页就在纸带上记一个对勾，狗跳上书桌趴下。');
     svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     host.appendChild(svg);
 
@@ -180,7 +191,7 @@
     var root = mk('g', { 'clip-path': 'url(#' + uid + 'c)' });
     var scene = mk('g', S.rough ? { filter: 'url(#' + uid + 'r)' } : {}, root);
     var g = {};
-    ['ground', 'desk', 'tape', 'cells', 'marks', 'walker', 'speech', 'petsBack', 'head', 'net', 'laptop', 'arms', 'chips', 'pets'].forEach(function (n) { g[n] = mk('g', {}, scene); });
+    ['ground', 'desk', 'tape', 'cells', 'marks', 'walker', 'speech', 'petsBack', 'head', 'net', 'laptop', 'arms', 'stairs', 'chips', 'pets'].forEach(function (n) { g[n] = mk('g', {}, scene); });
 
     var INK = 'var(--ih-ink)', LINE = 'var(--ih-line)', BG = 'var(--ih-bg)';
     var SW = S.thin ? 1.8 : 2.4;        // outline width
@@ -263,7 +274,19 @@
     nodes.forEach(function (a) { nodes.forEach(function (b) { if (b.l === a.l + 1) edges.push([a, b]); }); });
     var edgeEls = edges.map(function () { return css(mk('line', {}, g.net), { stroke: LINE, strokeWidth: 1.2, strokeOpacity: 0.55 }); });
     var feedEls = [0, 1].map(function () { return css(mk('line', {}, g.net), { stroke: LINE, strokeWidth: 1.2, strokeOpacity: 0.55, strokeDasharray: '3 3' }); });
+    var resBack = mk('g', {}, g.net); g.net.insertBefore(resBack, g.net.firstChild);
     var nodeEls = nodes.map(function () { return mk('circle', {}, g.net); });
+    /* ResNet (He et al., 2015): the network grows deeper, with skip connections over every two layers */
+    var COLS = [3, 4, 4, 4, 4, 4, 4, 4, 2];        // columns 0, 4 and 8 are the original 3-4-2 network
+    var resNodes = [];
+    COLS.forEach(function (n, c) { if (c !== 0 && c !== 4 && c !== 8) for (var j = 0; j < n; j++) resNodes.push({ c: c, j: j, n: n }); });
+    var resEdges = [];
+    for (var c0 = 0; c0 < COLS.length - 1; c0++) for (var a0 = 0; a0 < COLS[c0]; a0++) for (var b0 = 0; b0 < COLS[c0 + 1]; b0++) resEdges.push([c0, a0, b0]);
+    var resEdgeEls = resEdges.map(function () { return css(mk('line', {}, resBack), { stroke: LINE, strokeWidth: 1.1 }); });
+    var SKIPS = [[1, 3], [3, 5], [5, 7]];
+    var arcEls = SKIPS.map(function () { return css(mk('path', {}, resBack), { fill: 'none', stroke: LINE, strokeWidth: 1.8, strokeLinecap: 'round' }); });
+    var pulseEls = SKIPS.map(function () { return css(mk('circle', { r: 2.8 }, resBack), { fill: 'var(--ih-clay)' }); });
+    var resNodeEls = resNodes.map(function () { return mk('circle', {}, g.net); });
 
     /* the companions: a dog and a cat, domesticated alongside us — and, ten thousand years later,
        the network's training data (Kaggle's "Dogs vs. Cats") */
@@ -301,7 +324,7 @@
     });
     var probBars = [0, 1].map(function () { return mk('rect', { height: 5, rx: 2.5 }, g.net); });
     var verdict = css(mk('path', {}, g.net), { fill: 'none', strokeWidth: 2.6, strokeLinecap: 'round', strokeLinejoin: 'round' });
-    var SAMPLES = [['cat', 0.34], ['dog', 0.71], ['cat', 0.94]];   // [truth, p(correct)] as training goes on
+    var SAMP = C.samples.map(function (q) { return { kind: q[0], p: q[1], b: B(q[2]), d: q[3] }; });   // [truth, p(correct), start, duration]
 
     /* desk + laptop + arms for the final scene */
     var LX = 652;                                  // laptop centre
@@ -315,6 +338,8 @@
     var screenText = mk('g', {}, g.laptop);
     var lines = [0, 1, 2, 3, 4].map(function () { return css(mk('path', {}, screenText), { stroke: style === 'ink' ? INK : LINE, strokeWidth: 3, strokeLinecap: 'round', fill: 'none' }); });
     var caret = css(mk('rect', { width: 2, height: 7 }, screenText), { fill: 'var(--ih-clay)' });
+    var stairs = css(mk('path', {}, g.stairs), { fill: 'none', stroke: LINE, strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' });
+    var tick = css(mk('path', {}, screenText), { fill: 'none', stroke: 'var(--ih-ok)', strokeWidth: 3.2, strokeLinecap: 'round', strokeLinejoin: 'round' });
     var arms = [0, 1].map(function () {
       var o = css(mk('polyline', {}, g.arms), { fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' });
       var f = css(mk('polyline', {}, g.arms), { fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' });
@@ -325,29 +350,106 @@
       return { o: o, f: f, h: hnd };
     });
 
-    /* chips, created lazily */
-    var chips = [], chipPool = [];
-    var measurer = mk('text', { x: -999, y: -999, 'font-size': 15 });
-    css(measurer, { fontFamily: 'var(--ih-font-token)' });
-    function measure(s) {
-      measurer.textContent = s.replace(/^ /, ' ');
-      var w = 0; try { w = measurer.getComputedTextLength(); } catch (e) {}
-      return w || s.length * 7.6;
+    /* the printed stream: answer → prompt → steps → <think> thought </think> */
+    var KIND = {
+      ans: { fs: 15, font: 'var(--ih-font-token)', pad: 14, h: 22, gap: 5 },
+      tag: { fs: 12.5, font: 'var(--ih-font-mono)', pad: 12, h: 19, gap: 6 },
+      tht: { fs: 10.5, font: 'var(--ih-font-mono)', pad: 3, h: 15, gap: 1.5 },
+      log: { fs: 14, font: 'var(--ih-font-token)', pad: 14, h: 22, gap: 4 }
+    };
+    var measurers = {};
+    function measureK(str, kind) {
+      var m = measurers[kind];
+      if (!m) { m = measurers[kind] = mk('text', { x: -999, y: -999, 'font-size': KIND[kind].fs }); css(m, { fontFamily: KIND[kind].font, whiteSpace: 'pre' }); }
+      m.textContent = str;
+      var w = 0; try { w = m.getComputedTextLength(); } catch (e) {}
+      return w || str.length * KIND[kind].fs * 0.5;
     }
-    var widths = TOKENS.map(function (tk) { return measure(tk[0]); });
+    var chipPool = [], CH = [];
     var SWATCHES = ['var(--ih-manilla)', 'var(--ih-cactus)', 'var(--ih-heather)', 'var(--ih-peach)'];
     function chipEl() {
-      var grp = mk('g', {}, g.chips), r = mk('rect', { rx: 5, height: 22 }, grp), tx = mk('text', { 'text-anchor': 'middle', 'font-size': 15 }, grp);
-      css(tx, { fontFamily: 'var(--ih-font-token)', whiteSpace: 'pre' }); textInk(tx);
+      var grp = mk('g', {}, g.chips), r = mk('rect', {}, grp), tx = mk('text', { 'text-anchor': 'middle' }, grp);
+      css(tx, { whiteSpace: 'pre' });
       return { g: grp, r: r, t: tx };
     }
-
+    function styleChip(c) {
+      var K = KIND[c.kind], el = c.el;
+      el.t.textContent = c.s.replace(/^ /, '\u00a0');
+      el.t.setAttribute('font-size', K.fs); css(el.t, { fontFamily: K.font });
+      el.t.setAttribute('y', (K.fs * 0.34).toFixed(1));
+      el.r.setAttribute('width', c.w.toFixed(1)); el.r.setAttribute('height', K.h);
+      el.r.setAttribute('x', (-c.w / 2).toFixed(1)); el.r.setAttribute('y', -K.h / 2); el.r.setAttribute('rx', (K.h / 4.4).toFixed(1));
+      if (c.kind === 'ans') { paint(el.r, SWATCHES[c.sw % SWATCHES.length], { cutFill: LINE, w: 2 }); css(el.r, { display: '', strokeDasharray: '' }); textInk(el.t); el.t.style.opacity = 1; }
+      else if (c.kind === 'tag') { css(el.r, { display: '', fill: 'var(--ih-ivory)', stroke: style === 'ink' ? INK : LINE, strokeWidth: 1.8, strokeDasharray: '' }); css(el.t, { fill: style === 'ink' ? INK : LINE, opacity: 1 }); }
+      else if (c.kind === 'log') { paint(el.r, 'var(--ih-ivory)', { cutFill: BG, w: 1.8 }); css(el.r, { display: '', strokeDasharray: '' }); css(el.t, { fill: 'var(--ih-ok)', opacity: 1 }); }
+      else { css(el.r, { display: '', fill: 'var(--ih-manilla)', stroke: 'none', strokeDasharray: '' }); css(el.t, { fill: style === 'ink' ? INK : LINE, opacity: 0.62 }); }
+    }
+    function stairK(x) { return smooth(CX - 58, CX - 95, x); }
+    // height of the staircase under tape-x at story time t (the dog walks up it)
+    function stairAt(x, t) {
+      if (t < TOK0b || !CH.length) return 0;
+      var off = groundOffset(t), best = 0;
+      for (var k = 0; k < CH.length; k++) {
+        var c = CH[k]; if (!c.lvl || off < c.u - CX) continue;
+        var cx = c.u - off;
+        if (Math.abs(x - cx) <= c.w / 2 + 3) best = Math.max(best, c.lvl * C.stepRise * stairK(cx));
+      }
+      return best;
+    }
+    function printTime(u) {                         // when the tape brings tape-position u under the nozzle
+      var lo = TOK0b - 1, hi = T_TAB;
+      for (var k = 0; k < 48; k++) { var m = (lo + hi) / 2; if (groundOffset(m) >= u - CX) hi = m; else lo = m; }
+      return hi;
+    }
+    function build() {
+      CH.forEach(function (c) { if (c.el) { c.el.g.style.display = 'none'; chipPool.push(c.el); c.el = null; } });
+      var nAns = 0;
+      var segs = C.segments.map(function (sg) {
+        var list;
+        if (sg.kind === 'answer') list = C.tokens.answer.map(function (tk) { return { s: tk[0], kind: 'ans', lvl: 0 }; });
+        else if (sg.kind === 'prompt') list = C.tokens.prompt.map(function (tk) { return { s: tk[0], kind: 'ans', lvl: 0 }; });
+        else if (sg.kind === 'step') list = C.tokens.steps[sg.level - 1].map(function (tk) { return { s: tk[0], kind: 'ans', lvl: sg.level }; });
+        else list = [{ s: '<think>', kind: 'tag', lvl: 0 }].concat(C.tokens.thought.map(function (tk) { return { s: tk[0], kind: 'tht', lvl: 0 }; }), [{ s: '</think>', kind: 'tag', lvl: 0 }]);
+        list.forEach(function (c) { c.w = measureK(c.s.replace(/^ /, '\u00a0'), c.kind) + KIND[c.kind].pad; if (c.kind === 'ans') c.sw = nAns++; });
+        if (list.length) list[0].first = true;
+        var W = list.reduce(function (a, c) { return a + c.w + KIND[c.kind].gap; }, 0);
+        return { b: B(sg.start), list: list, W: W };
+      });
+      var stop = B(C.tapeStop);
+      segs.forEach(function (sg, k) {
+        sg.end = k + 1 < segs.length ? segs[k + 1].b : stop;
+        sg.v = sg.W / Math.max(0.5, (sg.end - sg.b) * 0.88);
+      });
+      for (var it = 0; it < 6; it++) {
+        SEG = segs.map(function (sg) { return { b: sg.b, v: sg.v }; }); STOPb = stop; integrate();
+        var ok = true; CH = [];
+        segs.forEach(function (sg, k) {
+          var u = CX + groundOffset(sg.b);
+          sg.list.forEach(function (c, j) {
+            if (j) u += sg.list[j - 1].w / 2 + KIND[sg.list[j - 1].kind].gap + c.w / 2;
+            CH.push({ i: CH.length, u: u, w: c.w, s: c.s, kind: c.kind, lvl: c.lvl, sw: c.sw || 0, first: !!c.first, el: null });
+          });
+          var last = CH[CH.length - 1], nxt = segs[k + 1];
+          var room = nxt ? (last.w / 2 + KIND[last.kind].gap + nxt.list[0].w / 2 + 4) / sg.v : 0.3;
+          var limit = sg.end - room, tp = printTime(last.u);
+          if (tp > limit) { sg.v *= (tp - sg.b) / Math.max(0.3, limit - sg.b) * 1.02; ok = false; }
+        });
+        if (ok) break;
+      }
+      var pg = [ARMS_DONE];
+      if (C.pagePeriod) for (var pk = 1; pk <= (C.logPages || 200); pk++) pg.push(ARMS_DONE + pk * C.pagePeriod);
+      else pg = pg.concat(C.pages.map(B).filter(function (x) { return x > ARMS_DONE + 1; }));
+      for (var k = 1; k < pg.length; k++) {
+        var w = measureK('✓', 'log') + KIND.log.pad;
+        CH.push({ i: CH.length, u: CX + groundOffset(pg[k] - 0.95), w: w, s: '✓', kind: 'log', lvl: 0, sw: 0, first: false, el: null });
+      }
+      window.FILM_DEBUG = { speeds: segs.map(function (sg) { return Math.round(sg.v); }), last: printTime(CH[CH.length - 1].u) + D };
+    }
     /* ── layout of fixed story positions (tape coordinates) ─────────── */
     var Sstop = framing === 'center' ? walked(5.0) : 0;          // ground offset when the human stops
     var glyphU = [562, 600, 638].map(function (x) { return x + Sstop; });
     var cellOrigin = glyphU[0] - CELL / 2;
     var headOn = 9.4;
-    var firstChipU = null, firstTyped = null;
 
     function groundOffset(t) { return (framing === 'center' ? walked(t) : 0) + taped(t); }
     var writeFrom = groundOffset(headOn + 0.1);
@@ -482,8 +584,11 @@
       var small = { x0: CX - 26, dx: 26, y0: by + 14 + 20, dy: 9.5, r: 3.6 };
       // fold in two beats: the big network shrinks into the head, then reappears inside the window
       var mA = smooth(M(7.8), M(8.08), t), mB = smooth(M(8.12), M(8.45), t);
+      var sp = smooth(RES0b, RES0b + 1.2, t) * (1 - smooth(FOLD0b - 1.0, FOLD0b, t));
+      function colX(c) { return CX + (c - 4) * lerp(16, 53.5, sp); }
+      function colY(j, n) { return big.y0 + (j - (n - 1) / 2) * big.dy; }
       var pos = nodes.map(function (nd) {
-        var B = [big.x0 + nd.l * big.dx, big.y0 + (nd.j - (nd.n - 1) / 2) * big.dy];
+        var B = [colX(nd.l * 4), colY(nd.j, nd.n)];
         var Sm = [small.x0 + nd.l * small.dx, small.y0 + (nd.j - (nd.n - 1) / 2) * small.dy];
         if (mB > 0) return [Sm[0], Sm[1], small.r * mB];
         return [lerp(B[0], CX, mA), lerp(B[1], 108, mA), big.r * (1 - mA)];
@@ -502,9 +607,10 @@
         else css(e, { fill: 'color-mix(in srgb, var(--ih-clay) ' + pct + '%, var(--ih-bg))', stroke: LINE, strokeWidth: 1.6 });
       });
       /* which training sample is on screen, and what the network predicts */
-      var T0 = M(6.65), SW = 0.4 * MK;                    // ~1.1 s per training sample
-      var si = clamp(Math.floor((t - T0) / SW), 0, 2), smp = SAMPLES[si];
-      var sT = T0 + si * SW, within = (t - sT) / MK;     // within-sample time, on the compact clock
+      var T0 = T0b, si = 0;
+      for (var qs = 0; qs < SAMP.length; qs++) if (t >= SAMP[qs].b) si = qs;
+      var smp = [SAMP[si].kind, SAMP[si].p], sT = SAMP[si].b;
+      var within = (t - sT) * 0.4 / SAMP[si].d;          // within-sample time, on the homepage's compact clock
       var trainK = smooth(M(6.5), M(6.7), t) * (1 - smooth(M(7.8), M(8.05), t));
       var pc = t < T0 ? 0.5 : lerp(0.5, smp[1], smooth(0.08, 0.26, within));
       var probs = smp[0] === 'cat' ? [pc, 1 - pc] : [1 - pc, pc];
@@ -548,7 +654,38 @@
         var a = pos[nodes.indexOf(edges[i][0])], b = pos[nodes.indexOf(edges[i][1])];
         e.setAttribute('x1', a[0].toFixed(1)); e.setAttribute('y1', a[1].toFixed(1));
         e.setAttribute('x2', b[0].toFixed(1)); e.setAttribute('y2', b[1].toFixed(1));
-        e.style.opacity = smooth(M(6.35), M(6.75), t) * (1 - smooth(M(7.8), M(8.1), t) * 0.6);
+        e.style.opacity = smooth(M(6.35), M(6.75), t) * (1 - smooth(M(7.8), M(8.1), t) * 0.6) * (1 - sp);
+      });
+      /* ResNet: new layers grow outward from the middle, then skip connections light up */
+      var colK = { 0: 1, 4: 1, 8: 1 };
+      [3, 5, 2, 6, 1, 7].forEach(function (c, k) {
+        var a0 = RES0b + 0.9 + k * C.resColGap;
+        colK[c] = smooth(a0, a0 + 0.45, t) * (1 - smooth(FOLD0b - 1.0, FOLD0b - 0.35, t));
+      });
+      function nodeXY(c, j) { return [colX(c), colY(j, COLS[c])]; }
+      resNodes.forEach(function (nd, k) {
+        var e = resNodeEls[k], P = nodeXY(nd.c, nd.j), r = big.r * colK[nd.c] * sp;
+        e.setAttribute('cx', P[0].toFixed(1)); e.setAttribute('cy', P[1].toFixed(1)); e.setAttribute('r', Math.max(0, r).toFixed(2));
+        var act = Math.max(0, Math.sin(realT * 3.4 - nd.c * 0.85 + hash(k) * 0.5)), pct = Math.round(act * 85);
+        if (style === 'ink') css(e, { fill: 'color-mix(in srgb, var(--ih-clay) ' + pct + '%, var(--ih-cactus))', stroke: INK, strokeWidth: 2 });
+        else if (style === 'cut') css(e, { fill: 'color-mix(in srgb, var(--ih-clay) ' + pct + '%, var(--ih-line))', stroke: 'none' });
+        else css(e, { fill: 'color-mix(in srgb, var(--ih-clay) ' + pct + '%, var(--ih-bg))', stroke: LINE, strokeWidth: 1.6 });
+        e.style.opacity = r > 0.05 ? 1 : 0;
+      });
+      resEdgeEls.forEach(function (e, k) {
+        var ed = resEdges[k], a = nodeXY(ed[0], ed[1]), b2 = nodeXY(ed[0] + 1, ed[2]);
+        e.setAttribute('x1', a[0].toFixed(1)); e.setAttribute('y1', a[1].toFixed(1)); e.setAttribute('x2', b2[0].toFixed(1)); e.setAttribute('y2', b2[1].toFixed(1));
+        e.style.opacity = (0.5 * Math.min(colK[ed[0]], colK[ed[0] + 1]) * sp).toFixed(3);
+      });
+      SKIPS.forEach(function (pr, k) {
+        var x1 = colX(pr[0]), x2 = colX(pr[1]), y = colY(3, 4) + big.r + 4, cy = y + 24, xm = (x1 + x2) / 2;
+        var aK = Math.min(colK[pr[0]], colK[pr[1]]) * smooth(RES0b + C.resArcAt + k * 0.45, RES0b + C.resArcAt + k * 0.45 + 0.6, t) * sp;
+        arcEls[k].setAttribute('d', 'M' + x1.toFixed(1) + ' ' + y.toFixed(1) + ' Q ' + xm.toFixed(1) + ' ' + cy.toFixed(1) + ' ' + x2.toFixed(1) + ' ' + y.toFixed(1));
+        arcEls[k].style.opacity = aK.toFixed(3);
+        var u = (realT * 0.9 + k * 0.33) % 1, iu = 1 - u;
+        pulseEls[k].setAttribute('cx', (iu * iu * x1 + 2 * iu * u * xm + u * u * x2).toFixed(1));
+        pulseEls[k].setAttribute('cy', (iu * iu * y + 2 * iu * u * cy + u * u * y).toFixed(1));
+        pulseEls[k].style.opacity = aK.toFixed(3);
       });
       // the head feeds the input layer and receives from the output layer
       var inMid = pos[1], outMid = pos[nodes.length - 2];
@@ -560,62 +697,46 @@
         e.style.strokeDashoffset = (-t * 18).toFixed(1);
       });
 
-      /* tokens printed onto the tape */
-      if (t < M(8.45)) { chips.forEach(function (c) { if (c.el) c.el.g.style.display = 'none'; }); [g.desk, g.laptop, g.arms].forEach(function (e) { e.style.opacity = 0; }); return; }
-      if (firstChipU === null) firstChipU = CX + groundOffset(M(8.45));
-      // build the list far enough ahead
-      while (!chips.length || chips[chips.length - 1].u + 400 < off + R) {
-        var idx = chips.length ? chips[chips.length - 1].i + 1 : 0;
-        var prev = chips[chips.length - 1];
-        var tk = TOKENS[idx % TOKENS.length], w = widths[idx % TOKENS.length] + 14;
-        var gap = idx % TOKENS.length === 0 && idx ? 40 : 5;
-        var u = prev ? prev.u + prev.w / 2 + gap + w / 2 : firstChipU;
-        chips.push({ i: idx, u: u, w: w, tk: tk, el: null });
+      /* the printed stream */
+      if (t < TOK0b) {
+        CH.forEach(function (c) { if (c.el) { c.el.g.style.display = 'none'; chipPool.push(c.el); c.el = null; } });
+        stairs.setAttribute('d', ''); [g.desk, g.laptop, g.arms].forEach(function (e) { e.style.opacity = 0; }); return;
       }
-      var lastPrinted = null;
-      if (firstTyped === null) {
-        var thr = groundOffset(ARMS_DONE) + CX;
-        for (var ci = 0; ci < chips.length; ci++) if (chips[ci].u >= thr) { firstTyped = chips[ci].i; break; }
-      }
-      chips.forEach(function (c) {
+      var stairD = '', vNow = Math.max(tapeSpeed(t), 60);
+      CH.forEach(function (c) {
         var x = c.u - off;
         var printed = off >= c.u - CX;
-        if (printed && (!lastPrinted || c.i > lastPrinted.i)) lastPrinted = c;
         var visible = printed && x + c.w / 2 > L && x - c.w / 2 < R;
         if (!visible) { if (c.el) { c.el.g.style.display = 'none'; chipPool.push(c.el); c.el = null; } return; }
-        if (!c.el) {
-          c.el = chipPool.pop() || chipEl();
-          var sw = SWATCHES[c.i % SWATCHES.length];
-          paint(c.el.r, sw, { cutFill: LINE, w: 2 });
-          c.el.t.textContent = c.tk[0].replace(/^ /, ' ');
-          c.el.r.setAttribute('width', c.w.toFixed(1));
-          c.el.r.setAttribute('x', (-c.w / 2).toFixed(1)); c.el.r.setAttribute('y', -11);
-          c.el.t.setAttribute('y', 5);
-          c.el.g.setAttribute('data-id', c.tk[1]);
-        }
+        if (!c.el) { c.el = chipPool.pop() || chipEl(); styleChip(c); }
         c.el.g.style.display = '';
-        var age = (off - (c.u - CX)) / Math.max(tapeSpeed(t), 60);
-        var pop = smooth(0, 0.22, age);
-        var yy = lerp(GY - 6, GY + TAPE_H / 2, pop);
+        var K = KIND[c.kind];
+        var pop = smooth(0, 0.22, (off - (c.u - CX)) / vNow);
+        // "step by step": once a step has cleared the dog, it climbs one level per step
+        var rk = c.lvl ? stairK(x) : 0, raise = c.lvl * C.stepRise * rk;
+        var yy = lerp(GY - 6, GY + TAPE_H / 2, pop) - raise;
         c.el.g.setAttribute('transform', 'translate(' + x.toFixed(1) + ',' + yy.toFixed(1) + ') scale(' + lerp(0.5, 1, pop).toFixed(3) + ')');
+        if (c.lvl && raise > 0.4) {
+          var yb = yy + K.h / 2 + 2, xl = x - c.w / 2 - K.gap / 2, xr = x + c.w / 2 + K.gap / 2;
+          stairD += 'M' + xl.toFixed(1) + ' ' + yb.toFixed(1) + ' H' + xr.toFixed(1);
+          if (c.first) stairD += ' M' + xl.toFixed(1) + ' ' + yb.toFixed(1) + ' V' + (yb + C.stepRise * rk).toFixed(1);
+        }
       });
-      // keep the list from growing forever
-      while (chips.length > 4 && chips[0].u - off + chips[0].w < L - 200 && !chips[0].el) chips.shift();
+      stairs.setAttribute('d', stairD);
 
-      /* final scene: desk + laptop slide in, the machine types every token it prints */
+      /* final scene: desk + laptop slide in, the machine gets to work */
       var lapK = smooth(LAP_IN, LAP_DONE, t);
       var slide = (1 - lapK) * 420;
       [g.desk, g.laptop].forEach(function (e) { e.setAttribute('transform', 'translate(' + slide.toFixed(1) + ',0)'); e.style.opacity = lapK > 0 ? 1 : 0; });
       var armK = smooth(LAP_DONE - 0.2, ARMS_DONE, t);
-      var typing = t >= ARMS_DONE && lastPrinted;
-      var age = typing ? (off - (lastPrinted.u - CX)) / V_TOK : 9;
+      var typing = t >= ARMS_DONE;
+      var tt = Math.max(0, t - ARMS_DONE), rate = C.tapRate, tapN = Math.floor(tt * rate), tapAge = (tt * rate - tapN) / rate;
       arms.forEach(function (a, i) {
         var sh = [CX + 58, 84 + i * 20];
         var rest = [CX + 70, 110 + i * 10];
         var key = [LX - 34 + i * 30, 125];
-        var tap = typing && (lastPrinted.i % 2) === i ? 1 - smooth(0, 0.14, age) : 0;
+        var tap = typing && (tapN % 2) === i ? 1 - smooth(0, 0.14, tapAge) : 0;
         var hand = [lerp(rest[0], key[0], armK), lerp(rest[1], key[1], armK) - 4 + tap * 4 - (1 - tap) * 3 * (typing ? 1 : 0)];
-        // telescoping arms: they grow out of the machine instead of unfolding
         var ext = lerp(0.25, 1, armK);
         hand = [lerp(sh[0], hand[0], ext), lerp(sh[1], hand[1], ext)];
         var el = ik(sh, hand, (40 + i * 9) * ext, (42 + i * 9) * ext, -1);
@@ -624,23 +745,30 @@
         a.h.setAttribute('cx', hand[0].toFixed(1)); a.h.setAttribute('cy', hand[1].toFixed(1));
       });
       g.arms.style.opacity = armK > 0.01 ? 1 : 0;
-      // screen: one page per pass through the quote
-      var shown = [];
-      if (typing) {
-        var n = TOKENS.length, page = Math.floor(lastPrinted.i / n);
-        var from = Math.max(page * n, firstTyped === null ? lastPrinted.i : firstTyped);
-        for (var q = from; q <= lastPrinted.i; q++) shown.push(widths[q % n] * 0.28 + 2);
+      // screen: pages of work; each page is typed line by line, then checked off
+      var pi = 0, pS, pE;
+      if (C.pagePeriod) { pi = Math.max(0, Math.floor((t - ARMS_DONE) / C.pagePeriod)); pS = ARMS_DONE + pi * C.pagePeriod; pE = pS + C.pagePeriod; }
+      else {
+        var pages = [ARMS_DONE].concat(C.pages.map(B).filter(function (x) { return x > ARMS_DONE + 1; }));
+        for (var q = 0; q < pages.length; q++) if (t >= pages[q]) pi = q;
+        pS = pages[pi]; pE = pi + 1 < pages.length ? pages[pi + 1] : B(C.END) + 2;
       }
-      var lx = LX - 42, lyy = 75, maxW = 84, cur = 0, row = 0, segs = [[]];
-      shown.forEach(function (w) { if (cur + w > maxW && cur > 0) { row++; cur = 0; segs[row] = []; } segs[row].push([cur, cur + w - 2]); cur += w; });
-      var first = Math.max(0, segs.length - 5);
-      lines.forEach(function (e, i) {
-        var sg = segs[first + i] || [];
-        e.setAttribute('d', sg.map(function (s2) { return 'M' + (lx + s2[0]).toFixed(1) + ' ' + (lyy + i * 9) + ' H' + (lx + Math.max(s2[0] + 0.5, s2[1])).toFixed(1); }).join(' '));
+      var lw = [0, 1, 2, 3, 4].map(function (k) { return k === 4 ? 26 + 30 * hash(pi * 11 + k) : 52 + 32 * hash(pi * 7 + k); });
+      var total = lw.reduce(function (a, b2) { return a + b2; }, 0);
+      var prog = typing ? clamp((t - pS) / Math.max(0.5, pE - pS - 1.0), 0, 1) : 0, done = prog * total;
+      var lx = LX - 42, lyy = 75, cx2 = lx, cy2 = 0;
+      lines.forEach(function (e, k) {
+        var before = lw.slice(0, k).reduce(function (a, b2) { return a + b2; }, 0), w = clamp(done - before, 0, lw[k]);
+        e.setAttribute('d', w > 0.5 ? 'M' + lx + ' ' + (lyy + k * 9) + ' H' + (lx + w).toFixed(1) : '');
+        if (w > 0 && w < lw[k]) { cx2 = lx + w; cy2 = k; }
+        if (w >= lw[k]) { cx2 = lx + lw[k]; cy2 = k; }
       });
-      var cr = Math.min(segs.length - 1, 4);
-      caret.setAttribute('x', (lx + cur + 1).toFixed(1)); caret.setAttribute('y', (lyy - 3.5 + cr * 9).toFixed(1));
-      caret.style.opacity = typing && Math.floor(realT * 2.2) % 2 === 0 ? 1 : (typing ? 0.15 : 0);
+      caret.setAttribute('x', (cx2 + 1.5).toFixed(1)); caret.setAttribute('y', (lyy - 3.5 + cy2 * 9).toFixed(1));
+      caret.style.opacity = typing && prog < 1 ? (Math.floor(realT * 2.2) % 2 === 0 ? 1 : 0.15) : 0;
+      var tk = typing && prog >= 1 ? smooth(pE - 1.0, pE - 0.75, t) : 0;
+      var tx0 = LX + 30, ty0 = 112;
+      tick.setAttribute('d', 'M' + (tx0 - 6) + ' ' + (ty0 - 2) + ' l4.5 4.5 l9 -10');
+      tick.style.opacity = tk.toFixed(3);
     }
 
     /* where a pet is, as a pure function of story time */
@@ -651,8 +779,9 @@
     function petState(kind, t) {
       var P = PET[kind];
       var st = { x: petX(kind, t), y: GY, air: 0, lie: 0, sleep: 0, landed: false, vis: t >= P.enter[0] };
+      if (kind === 'dog') st.y = GY - Math.max(stairAt(st.x - 9, t), stairAt(st.x + 9, t));
       // the cat leaps onto the machine's warm roof; the dog, later, onto the desk
-      var J = kind === 'cat' ? [23.8, 24.3, CX - 32, 46, 36] : [30.7, 31.3, LX + 100, 134, 70];
+      var J = kind === 'cat' ? [TOK0b + 0.2, TOK0b + 0.7, CX - 32, 46, 36] : [LAP_DONE + 0.1, LAP_DONE + 0.7, LX + 100, 134, 70];
       if (t >= J[0]) {
         var k = clamp((t - J[0]) / (J[1] - J[0]), 0, 1);
         st.x = lerp(P.spot, J[2], k);
@@ -806,22 +935,23 @@
     }
     function kick() { if (!raf && playing && visible) raf = requestAnimationFrame(frame); }
     fit();
-    render(reduce ? 60 : 0);
-    if (window.ResizeObserver) new ResizeObserver(function () { fit(); render(t || (reduce ? 60 : 0)); }).observe(host);
+    render(reduce ? (C.STILL || 0) : 0);
+    if (window.ResizeObserver) new ResizeObserver(function () { fit(); render(t || (reduce ? (C.STILL || 0) : 0)); }).observe(host);
     if (window.IntersectionObserver) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; kick(); }).observe(host);
+    build();
     var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
-    ready.then(function () { widths = TOKENS.map(function (tk) { return measure(tk[0]); }); kick(); });
+    ready.then(function () { build(); render(t || (reduce ? (C.STILL || 0) : 0)); window.FILM_READY = true; });
 
     return {
       play: function () { playing = true; kick(); },
       pause: function () { playing = false; },
       toggle: function () { playing = !playing; kick(); return playing; },
-      replay: function () { t = 0; chips.forEach(function (c) { if (c.el) { c.el.g.style.display = 'none'; chipPool.push(c.el); } }); chips = []; firstChipU = null; firstTyped = null; playing = true; render(0); kick(); },
+      replay: function () { t = 0; playing = true; render(0); kick(); },
       seek: function (s) { t = s; render(s); },
       isPlaying: function () { return playing; },
       render: render
     };
   }
 
-  window.IntelHistory = { mount: mount, T_END: T_END };
+  window.IntelHistory = { mount: mount };
 })();
