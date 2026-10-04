@@ -317,6 +317,7 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
     var arcEls = SKIPS.map(function () { return css(mk('path', {}, resBack), { fill: 'none', stroke: LINE, strokeWidth: 1.8, strokeLinecap: 'round' }); });
     var pulseEls = SKIPS.map(function () { return css(mk('circle', { r: 2.8 }, resBack), { fill: 'var(--ih-clay)' }); });
     var resNodeEls = resNodes.map(function () { return mk('circle', {}, g.net); });
+    var resCleared = false;
 
     /* the companions: a dog and a cat, domesticated alongside us — and, ten thousand years later,
        the network's training data (Kaggle's "Dogs vs. Cats") */
@@ -396,6 +397,12 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
       return w || str.length * KIND[kind].fs * 0.5;
     }
     var chipPool = [], CH = [];
+    // the <think> stream is one line of text laid out once (146 tiny tokens as separate elements cost WebKit a
+    // one-off layout hitch each); it moves as a whole and is revealed as it passes the nozzle
+    var thtClip = mk('clipPath', { id: uid + 't' }, defs), thtClipRect = mk('rect', { x: -60, y: 0, width: CX + 60, height: H }, thtClip);
+    var thtWrap = mk('g', { 'clip-path': 'url(#' + uid + 't)' }, g.chips), thtG = mk('g', {}, thtWrap);
+    var thtBack = css(mk('rect', { height: 15, y: GY + TAPE_H / 2 - 7.5 }, thtG), { fill: 'var(--ih-manilla)', stroke: 'none' });
+    var thtText = mk('text', { y: GY + TAPE_H / 2 + 3.6, 'font-size': 10.5 }, thtG), THT = { u0: 0, u1: 0, on: false };
     var SWATCHES = ['var(--ih-manilla)', 'var(--ih-cactus)', 'var(--ih-heather)', 'var(--ih-peach)'];
     function chipEl() {
       var grp = mk('g', {}, g.chips), r = mk('rect', {}, grp), tx = mk('text', { 'text-anchor': 'middle' }, grp);
@@ -425,6 +432,22 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
         if (Math.abs(x - cx) <= c.w / 2 + 3) best = Math.max(best, c.lvl * C.stepRise * stairK(cx));
       }
       return best;
+    }
+    // first-time glyph rasterisation is a one-off hitch (e.g. when "Attention" or the <think> stream first appears);
+    // draw every glyph we will need once, almost invisibly, inside the view, then remove it
+    var warmEls = [];
+    function warmGlyphs(segs) {
+      warmEls.forEach(function (e) { if (e.parentNode) e.parentNode.removeChild(e); }); warmEls = [];
+      var seen = {};
+      segs.forEach(function (sg) { sg.list.forEach(function (c) { if (c.kind !== 'tht') (seen[c.kind] || (seen[c.kind] = {}))[c.s] = 1; }); });
+      seen.log = { '✓': 1 };
+      Object.keys(seen).forEach(function (kind, k) {
+        var chars = {}; Object.keys(seen[kind]).join('').split('').forEach(function (ch) { chars[ch] = 1; });
+        var e = mk('text', { x: CX, y: 20 + k * 18, 'font-size': KIND[kind].fs }, g.chips);
+        css(e, { fontFamily: KIND[kind].font, opacity: 0.004, whiteSpace: 'pre' }); e.textContent = Object.keys(chars).join('');
+        warmEls.push(e);
+      });
+      setTimeout(function () { warmEls.forEach(function (e) { if (e.parentNode) e.parentNode.removeChild(e); }); warmEls = []; }, 2500);
     }
     function printTime(u) {                         // when the tape brings tape-position u under the nozzle
       var lo = TOK0b - 1, hi = T_TAB;
@@ -457,6 +480,7 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
           var u = CX + groundOffset(sg.b);
           sg.list.forEach(function (c, j) {
             if (j) u += sg.list[j - 1].w / 2 + KIND[sg.list[j - 1].kind].gap + c.w / 2;
+            if (c.kind === 'tht') { c.u = u; return; }
             CH.push({ i: CH.length, u: u, w: c.w, s: c.s, kind: c.kind, lvl: c.lvl, sw: c.sw || 0, first: !!c.first, el: null });
           });
           var last = CH[CH.length - 1], nxt = segs[k + 1];
@@ -473,6 +497,14 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
         var w = measureK('✓', 'log') + KIND.log.pad;
         CH.push({ i: CH.length, u: CX + groundOffset(pg[k] - 0.95), w: w, s: '✓', kind: 'log', lvl: 0, sw: 0, first: false, el: null });
       }
+      var thts = []; segs.forEach(function (sg) { sg.list.forEach(function (c) { if (c.kind === 'tht') thts.push(c); }); });
+      while (thtText.firstChild) thtText.removeChild(thtText.firstChild);
+      css(thtText, { fontFamily: KIND.tht.font, fill: style === 'ink' ? INK : LINE, opacity: 0.62, whiteSpace: 'pre' });
+      thts.forEach(function (c) { var ts = document.createElementNS(NS, 'tspan'); ts.setAttribute('x', c.u.toFixed(1)); ts.setAttribute('text-anchor', 'middle'); ts.textContent = c.s.replace(/^ /, '\u00a0'); thtText.appendChild(ts); });
+      if (thts.length) { THT.u0 = thts[0].u - thts[0].w / 2; THT.u1 = thts[thts.length - 1].u + thts[thts.length - 1].w / 2; THT.on = true;
+        thtBack.setAttribute('x', THT.u0.toFixed(1)); thtBack.setAttribute('width', (THT.u1 - THT.u0).toFixed(1)); }
+      while (chipPool.length < (C.chipPool || 96)) { var pe = chipEl(); pe.g.style.display = 'none'; chipPool.push(pe); }
+      warmGlyphs(segs);
       window.FILM_DEBUG = { speeds: segs.map(function (sg) { return Math.round(sg.v); }), last: printTime(CH[CH.length - 1].u) + D };
     }
     /* ── layout of fixed story positions (tape coordinates) ─────────── */
@@ -688,6 +720,8 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
         css(e, { opacity: smooth(M(6.35), M(6.75), t) * (1 - smooth(M(7.8), M(8.1), t) * 0.6) * (1 - sp) });
       });
       /* ResNet: new layers grow outward from the middle, then skip connections light up */
+      var resOn = t > RES0b - 0.1 && t < FOLD0b + 0.1;
+      if (resOn || !resCleared) { resCleared = !resOn;
       var colK = { 0: 1, 4: 1, 8: 1 };
       [3, 5, 2, 6, 1, 7].forEach(function (c, k) {
         var a0 = RES0b + 0.9 + k * C.resColGap;
@@ -718,6 +752,7 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
         sa(pulseEls[k], 'cy', (iu * iu * y + 2 * iu * u * cy + u * u * y).toFixed(1));
         css(pulseEls[k], { opacity: aK.toFixed(3) });
       });
+      }
       // the head feeds the input layer and receives from the output layer
       var inMid = pos[1], outMid = pos[nodes.length - 2];
       [[inMid, [CX - 10, by]], [outMid, [CX + 10, by]]].forEach(function (pr, i) {
@@ -731,7 +766,7 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
       /* the printed stream */
       if (t < TOK0b) {
         CH.forEach(function (c) { if (c.el) { css(c.el.g, { display: 'none' }); chipPool.push(c.el); c.el = null; } });
-        sa(stairs, 'd', ''); [g.desk, g.laptop, g.arms].forEach(function (e) { css(e, { opacity: 0 }); }); return;
+        css(thtWrap, { display: 'none' }); sa(stairs, 'd', ''); [g.desk, g.laptop, g.arms].forEach(function (e) { css(e, { opacity: 0 }); }); return;
       }
       var stairD = '', vNow = Math.max(tapeSpeed(t), 60);
       CH.forEach(function (c) {
@@ -754,6 +789,9 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
         }
       });
       sa(stairs, 'd', stairD);
+      var tVis = THT.on && off >= THT.u0 - CX && THT.u1 - off > L;
+      css(thtWrap, { display: tVis ? '' : 'none' });
+      if (tVis) { sa(thtG, 'transform', 'translate(' + (-off).toFixed(1) + ',0)'); sa(thtClipRect, 'x', L.toFixed(1)); sa(thtClipRect, 'width', (CX - L).toFixed(1)); }
 
       /* final scene: desk + laptop slide in, the machine gets to work */
       var lapK = smooth(LAP_IN, LAP_DONE, t);
@@ -951,21 +989,24 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
         ' Q ' + (hx + R * 0.1).toFixed(1) + ' ' + (hy - R * 0.25).toFixed(1) + ' ' + (hx - R * 0.35).toFixed(1) + ' ' + (hy + R * 0.25).toFixed(1) + ' Z');
       css(W.hair, { fill: style === 'cut' ? 'color-mix(in srgb, var(--ih-line) 60%, var(--ih-bg))' : style === 'ink' ? INK : LINE, stroke: 'none', opacity: hk });
       // muzzle sits under the head outline in the ink style
-      if (style === 'ink') g.walker.insertBefore(W.muzzle, W.headO);
+      if (style === 'ink' && W.muzzle.nextSibling !== W.headO) g.walker.insertBefore(W.muzzle, W.headO);   // move once, not every frame
     }
 
     /* ── playback ─────────────────────────────────────────────────────── */
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var t = 0, last = null, playing = !reduce && opts.autoplay !== false, visible = true, raf = 0;
     /* quality guard: if this device can't keep ~45 fps with the hand-drawn wobble, drop the wobble for good */
-    var slow = [], wobble = true;
+    // fires only if three consecutive whole seconds stay under 45 fps (startup hitches and one-off spikes are ignored)
+    var wobble = true, gSec = -1, gN = 0, gMs = 0, gBad = 0;
     function guard(dt) {
-      if (!wobble || dt > 250 || t < 2) return;            // ignore tab switches / the first seconds
-      slow.push(dt > 22 ? 1 : 0); if (slow.length > 90) slow.shift();
-      if (slow.length === 90 && slow.reduce(function (a, b) { return a + b; }, 0) > 12) {
-        wobble = false; scene.removeAttribute('filter');
-        if (meter) meter.note('已关闭手绘抖动（帧率不足）');
+      if (!wobble || dt > 250 || dt < 4 || t < 6) return;
+      var sec = Math.floor(t);
+      if (sec !== gSec) {
+        if (gSec >= 0 && gMs > 500) { var fps = 1000 * gN / gMs; gBad = fps < 45 ? gBad + 1 : 0; }
+        gSec = sec; gN = 0; gMs = 0;
+        if (gBad >= 3) { wobble = false; scene.removeAttribute('filter'); if (meter) meter.note('已关闭手绘抖动（连续 3 秒低于 45 fps）'); }
       }
+      gN++; gMs += dt;
     }
     /* ?fps → an on-page meter: per-second fps over story time, rolling stats, copyable data */
     var meter = (window.IH_FPS || /[?&]fps\b/.test(location.search)) ? makeMeter() : null;
@@ -976,11 +1017,18 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
       cvs.width = 840; cvs.height = 300; cvs.style.cssText = 'width:100%;aspect-ratio:840/300;display:block;margin:6px 0';
       btn.textContent = '复制数据'; btn.style.cssText = 'font:inherit;margin-top:4px;padding:2px 8px;border-radius:5px;border:0;cursor:pointer';
       box.appendChild(head); box.appendChild(cvs); box.appendChild(foot); box.appendChild(btn); document.body.appendChild(box);
-      var ctx = cvs.getContext('2d'), perSec = {}, all = [], notes = [];
+      var ctx = cvs.getContext('2d'), perSec = {}, all = [], notes = [], slowF = [];
       var ua = navigator.userAgent, dpr = window.devicePixelRatio || 1;
       btn.onclick = function () {
         var data = { ua: ua, dpr: dpr, wobble: wobble, notes: notes, perSecond: Object.keys(perSec).map(Number).sort(function (a, b) { return a - b; }).map(function (k) { return [k, +secFps(k).toFixed(1)]; }) };
-        var str = JSON.stringify(data); if (navigator.clipboard) navigator.clipboard.writeText(str); btn.textContent = '已复制';
+        data.slowFrames = slowF.slice(-300);
+        var str = JSON.stringify(data), ta = document.createElement('textarea');
+        ta.value = str; ta.readOnly = true; ta.style.cssText = 'width:100%;height:90px;margin-top:6px;font:10px/1.3 ui-monospace,monospace;color:#141413';
+        var old = box.querySelector('textarea'); if (old) box.removeChild(old); box.appendChild(ta);
+        ta.focus(); ta.select(); try { ta.setSelectionRange(0, str.length); } catch (e) {}
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        if (!ok && navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(str).then(function () { btn.textContent = '已复制'; });
+        btn.textContent = ok ? '已复制' : '请长按下方文本全选复制';
       };
       function secFps(k) { var a = perSec[k], s3 = a.reduce(function (x, y) { return x + y; }, 0); return 1000 * a.length / s3; }
       function stats(ks) {                                   // over whole seconds: mean, worst second, sd between seconds
@@ -1004,11 +1052,14 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
           if (dt > 250 || dt < 4) return;                    // tab switches / duplicate callbacks are not frames
           all.push(dt);
           var k = Math.floor(story); (perSec[k] || (perSec[k] = [])).push(dt);
+          if (dt > 25) slowF.push([+story.toFixed(2), Math.round(dt)]);
           if (all.length % 15 === 0) {
             var done = Object.keys(perSec).map(Number).filter(function (s4) { return s4 < k; }).sort(function (a, b) { return a - b; });
             var r = stats(done.slice(-5)), w = stats(done);
             head.textContent = '近5秒 ' + r[0].toFixed(1) + ' fps · 最差一秒 ' + r[1].toFixed(1) + ' · 波动 ±' + r[2].toFixed(1);
-            foot.textContent = '全程 ' + w[0].toFixed(1) + ' fps · 最差一秒 ' + w[1].toFixed(1) + ' · 波动 ±' + w[2].toFixed(1) + ' · ' + done.length + ' 秒 · DPR ' + dpr + (wobble ? '' : ' · 抖动已关') + (notes.length ? ' · ' + notes.join('；') : '');
+            var hot = {}; slowF.forEach(function (q) { var b2 = Math.floor(q[0]); hot[b2] = (hot[b2] || 0) + 1; });
+            var hotS = Object.keys(hot).sort(function (a, b) { return hot[b] - hot[a]; }).slice(0, 4).map(function (b2) { return b2 + 's×' + hot[b2]; }).join(' ');
+            foot.textContent = (hotS ? '慢帧集中在 ' + hotS + ' · ' : '') + '全程 ' + w[0].toFixed(1) + ' fps · 最差一秒 ' + w[1].toFixed(1) + ' · 波动 ±' + w[2].toFixed(1) + ' · ' + done.length + ' 秒 · DPR ' + dpr + (wobble ? '' : ' · 抖动已关') + (notes.length ? ' · ' + notes.join('；') : '');
             draw();
           }
         },
@@ -1029,7 +1080,22 @@ window.FILM_CONFIG = {"track": "homepage", "warp": [[0, 0], [17.4, 17.4]], "G0":
     if (window.IntersectionObserver) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; kick(); }).observe(host);
     build();
     var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
-    ready.then(function () { build(); render(t || (reduce ? (C.STILL || 0) : 0)); window.FILM_READY = true; });
+    ready.then(function () { build(); render(t || (reduce ? (C.STILL || 0) : 0)); window.FILM_READY = true; if (!reduce) rehearse(); });
+    /* rehearsal: the first time a scene is laid out (the fold, "Attention", the steps, <think>, the laptop) WebKit pays a
+       one-off cost that shows up as a dropped second. During the quiet opening we lay out each of those moments once,
+       one per task, and immediately restore the current frame — nothing extra is ever painted. */
+    function rehearse() {
+      var keys = [FOLD0b - 0.6, FOLD0b + 0.4, TOK0b + 0.3, TOK0b + 1.5].concat(
+        C.segments.map(function (sg) { return B(sg.start) + 0.6; }),
+        [B(C.segments[C.segments.length - 1].start) + 3, B(C.tapeStop) - 0.5, LAP_IN + 0.6, ARMS_DONE + 0.5, ARMS_DONE + (C.pagePeriod || 6) - 0.9]);
+      var i = 0;
+      (function next() {
+        if (i >= keys.length) return;
+        var k = keys[i++];
+        if (k > t + 1) { render(k); try { svg.getBBox(); } catch (e) {} render(t); }
+        setTimeout(next, 90);
+      })();
+    }
 
     return {
       play: function () { playing = true; kick(); },

@@ -8,8 +8,7 @@
   <meta name="author" content="罗文江 Luo Wenjiang">
   <link rel="canonical" href="https://shiba-hua.github.io/">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#1F1E1D" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FAF9F5">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="罗文江 · 研究与工程">
   <meta property="og:description" content="高效推理、RSI 与研究自动化。论文、开源项目、视频与文章。">
@@ -19,13 +18,13 @@
   <link rel="icon" href="favicon.svg?v=4ad1680720" type="image/svg+xml">
   <link rel="preload" href="assets/sans-sc.woff2?v=fa82767631" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/serif-sc.woff2?v=decb56cef5" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/history.min.js?v=60957b34c0" as="script">
+  <link rel="preload" href="assets/history.min.js?v=8e65810e3d" as="script">
   <script>
     /* Freshness check. GitHub Pages lets browsers cache this page for 10 minutes;
        version.json is fetched uncached, and if it names a newer build the page
        reloads once from the network. BUILD is written by tools/stamp.py. */
     (function () {
-      var BUILD = '37718b5919';
+      var BUILD = 'edd9779af9';
       try {
         var u = new URL(location.href);
         if (u.searchParams.get('v') === BUILD) { u.searchParams.delete('v'); history.replaceState(null, '', u.pathname + u.search + u.hash); }
@@ -47,7 +46,7 @@
     (function () {
       try {
         var saved = localStorage.getItem('theme');
-        if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+        document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';   // light unless the visitor chose dark
       } catch (e) {}
     })();
   </script>
@@ -224,7 +223,7 @@
     .btn-secondary:hover { background: var(--btn-bg); color: var(--btn-fg); }
 
     /* ── Top bar ──────────────────────────────────────────────────────── */
-    .bar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+    .bar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 96%, transparent); }
     .bar-inner { display: flex; align-items: center; gap: 32px; height: 72px; }
     .bar-name { font: 700 1.25rem/1 var(--display); letter-spacing: .08em; text-decoration: none; white-space: nowrap; }
     .bar-nav { display: flex; gap: 26px; margin-left: auto; font-family: var(--detail); }
@@ -634,7 +633,7 @@
     </div>
   </footer>
 
-  <script src="assets/history.min.js?v=60957b34c0"></script>
+  <script src="assets/history.min.js?v=8e65810e3d"></script>
   <script>
     (function () {
       var host = document.getElementById('history');
@@ -654,7 +653,7 @@
       var root = document.documentElement;
       var btn = document.querySelector('.theme-btn');
       var mq = window.matchMedia('(prefers-color-scheme: dark)');
-      function current() { return root.dataset.theme || (mq.matches ? 'dark' : 'light'); }
+      function current() { return root.dataset.theme === 'dark' ? 'dark' : 'light'; }
       function label() {
         var t = current() === 'dark' ? '切换到浅色模式' : '切换到深色模式';
         btn.setAttribute('aria-label', t); btn.title = t;
@@ -662,6 +661,7 @@
       btn.addEventListener('click', function () {
         var next = current() === 'dark' ? 'light' : 'dark';
         root.dataset.theme = next;
+        var tc = document.querySelector('meta[name="theme-color"]'); if (tc) tc.setAttribute('content', next === 'dark' ? '#1F1E1D' : '#FAF9F5');
         try { localStorage.setItem('theme', next); } catch (e) {}
         label();
       });
